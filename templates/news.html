@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CFB101</title>
+    <style type="test/css">
+        .pagination {text-align: center;}
+    </style>
+</head>
+<body>
+
+{% extends "bootstrap/base.html" %}
+{% block CFB101 %}news page{% endblock %}
+
+<div class="navbar navbar-fixed-top">
+    {% block navbar %}
+        {% include 'navbar.html' %}
+    {% endblock %}
+
+    {% block content %}
+    <div class="bs-example" data-example-id="default-navbar">
+    <div>   農業新聞(樣式待選)</div>
+         <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <th>Date</th>
+                            <th>Title</th>
+                        </thead>
+                        <tbody>
+                            {% for n in data %}
+                                <tr>
+                                    <td> {{ n['date'] }}</td>
+                                    <td> <a href="{{ n['link'] }}" title="{{ n['title'] }}">{{ n['title'] }}</a></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+
+    <center>
+        <div>頁面轉換待完成</div>
+        <nav aria-label="..."><ul class="pagination pagination-sm"></ul>
+            <ul class="pagination  text-center">
+                <li>
+                  <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">«</span>
+                  </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                  <a href="#" aria-label="Next">
+                    <span aria-hidden="true">»</span>
+                  </a>
+                </li>
+            </ul>
+        </nav>
+    </center>
+    {% endblock %}
+</div>
+
+</body>
+</html>
+

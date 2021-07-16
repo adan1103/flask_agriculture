@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CFB101</title>
+    <style type="test/css">
+        .pagination {text-align: center;}
+    </style>
+</head>
+<body>
+
+{% extends "bootstrap/base.html" %}
+{% block Title %}This is an example page{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-fixed-top">
+    {%include 'navbar.html' %}
+    predict page
+</div>
+{% endblock %}
+</body>

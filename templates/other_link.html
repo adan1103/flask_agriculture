@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CFB101</title>
+    <style type="test/css">
+        .pagination {text-align: center;}
+    </style>
+</head>
+<body>
+{% extends "bootstrap/base.html" %}
+{% block CFB101 %}This is an example page{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-fixed-top">
+    {%include 'navbar.html' %}
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+        </thead>
+        <tbody>
+            <td><a href="https://www.coa.gov.tw/index.php">行政院農委會</a></td>
+            <td><a href="https://www.afa.gov.tw/cht/index.php?">行政院農委會農糧署</a></td>
+            <td><a href="https://amis.afa.gov.tw/fruit/FruitProdTransInfoCP.aspx">農產品批發市場交易行情站</a></td>
+            <td><a href="https://e-service.cwb.gov.tw/HistoryDataQuery/index.jsp">氣象觀測資料查訊站</a></td>
+            <td><a href="https://agr.cwb.gov.tw/">農業氣象觀測往監測系統</a></td>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+</body>
