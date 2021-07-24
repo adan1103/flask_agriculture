@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .pagination{
+        display: inline-block;
+    }
+        .pagination-page-link {
+        display: inline-block;
+    }
+    .pagination-page-link a {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+    }
+    .pagination-page-link a.active {
+        background-color: #4CAF50;
+        color: white;
+    }
+    .pagination a:hover:not(.active) {background-color: #ddd;}
+    </style>
+</head>
+<body>
+  {{ pagination.info }}
+<ul class="pagination2 hover">
+  {{ pagination.links }}
+</ul>
+
+</body>
+</html>
