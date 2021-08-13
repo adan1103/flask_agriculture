@@ -84,12 +84,9 @@ def information():
 # 農業新聞
 @app.route('/news')
 def news():
-
     news = db.news
-    page_index = request.args.get(get_page_parameter(), type=int, default=1)  # 第幾頁
-    print(page_index)
-    limit = 10  # 每頁30筆
-    # 從mongodb得到所有news
+    page_index = request.args.get(get_page_parameter(), type=int, default=1)
+    limit = 10  # 每頁10筆
     all_news = [x for x in news.find().sort('date', pymongo.DESCENDING)]
     news_data = []
     last_id = all_news[limit*(page_index-1)]['news_id']
@@ -101,17 +98,16 @@ def news():
             break
     print(last_id)
 
+    pagination = Pagination(page=page_index, total=len(all_news), per_page_parameter=10, error_out=False, css_framework='bootstrap3')
 
-    pagination = Pagination(page=page_index, total=len(all_news), per_page_parameter=10, error_out=False)
+    return render_template('news.html', posts=news_data, pagination=pagination)
+
     # posts = pagination.items
     # page = request.args.get(get_page_parameter(), type=int, default=1)
     # news_data = news.paginate(page, 30, False)
 
     # return jsonify({'news': news, 'start_id': 'starting_id', 'pre_url': prve_url, 'next_url': next_url})
     # return jsonify({'start_id': 'starting_id'})
-
-    return render_template('news.html', posts=news_data, pagination=pagination)
-
 
 @app.route('/contact')
 def contact():
